@@ -4,6 +4,5 @@ Ext.define("Financeiro.view.main.Center", {
 
     layout: "card",
 
-    padding: 15,
     shadow: true, // sombra
 });
