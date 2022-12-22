@@ -2,6 +2,8 @@ Ext.define("Financeiro.view.supplier.Dialog", {
     extend: "Ext.Dialog",
     title: "Cadastro de Fornecedor",
 
+    controller: "supplierdialog",
+
     layout: "fit",
     width: 600,
     height: 570,
@@ -12,6 +14,7 @@ Ext.define("Financeiro.view.supplier.Dialog", {
     items: [
         {
             xtype: "supplier-form",
+            reference: "form",
         },
         {
             xtype: "toolbar",
@@ -24,6 +27,7 @@ Ext.define("Financeiro.view.supplier.Dialog", {
                 {
                     xtype: "button",
                     text: "Salvar",
+                    handler: "onSaveEdit",
                 },
             ],
         },

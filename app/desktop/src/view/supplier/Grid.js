@@ -22,9 +22,19 @@ Ext.define("Financeiro.view.supplier.Grid", {
                     iconCls: "x-fa fa-address-card",
                     ui: "action",
                     text: "Novo",
-                    tooltip: "Clique para cadastra um novo Fornecedor",
+                    tooltip: "Clique para cadastra um novo fornecedor",
                     listeners: {
                         tap: "onNovoFornecedor", // no toque do botao ativa a funcão
+                    },
+                },
+                {
+                    xtype: "button",
+                    iconCls: "x-fa fa-edit",
+                    margin: "0 0 0 5",
+                    text: "Editar",
+                    tooltip: "Clique para editar o fornecedor selecionado",
+                    listeners: {
+                        tap: "onEditFornecedor",
                     },
                 },
             ],

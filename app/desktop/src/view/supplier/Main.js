@@ -21,6 +21,7 @@ Ext.define("Financeiro.view.supplier.Main", {
             flex: 1,
             margin: 10,
             shadow: true,
+            reference: "supplierGrid",
             bind: {
                 store: "{suppliers}",
             },

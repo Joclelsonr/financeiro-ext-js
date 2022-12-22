@@ -2,10 +2,16 @@ Ext.define("Financeiro.view.supplier.Form", {
     extend: "Ext.form.Panel",
     alias: "widget.supplier-form",
 
+    requires: ["Ext.field.Container", "Ext.field.trigger.Search"],
+    modelValidation: true,
+
     items: [
         {
             xtype: "textfield",
             label: "Nome",
+            bind: {
+                value: "{record.name}",
+            },
         },
         {
             xtype: "fieldcontainer",
@@ -17,10 +23,16 @@ Ext.define("Financeiro.view.supplier.Form", {
                     xtype: "textfield",
                     label: "Telefone",
                     margin: "0 5 0 0",
+                    bind: {
+                        value: "{record.phone}",
+                    },
                 },
                 {
                     xtype: "textfield",
                     label: "Email",
+                    bind: {
+                        value: "{record.email}",
+                    },
                 },
             ],
         },
@@ -34,10 +46,16 @@ Ext.define("Financeiro.view.supplier.Form", {
                     xtype: "textfield",
                     label: "CNPJ/CPF",
                     margin: "0 5 0 0",
+                    bind: {
+                        value: "{record.cnpj_cpf}",
+                    },
                 },
                 {
                     xtype: "textfield",
                     label: "IE/RG",
+                    bind: {
+                        value: "{record.rg_ie}",
+                    },
                 },
             ],
         },
@@ -45,6 +63,9 @@ Ext.define("Financeiro.view.supplier.Form", {
             xtype: "textfield",
             label: "CEP",
             width: "35%",
+            bind: {
+                value: "{record.address_postal_code}",
+            },
             triggers: [
                 {
                     type: "search",
@@ -62,10 +83,16 @@ Ext.define("Financeiro.view.supplier.Form", {
                     xtype: "textfield",
                     label: "Endereço",
                     margin: "0 5 0 0",
+                    bind: {
+                        value: "{record.address}",
+                    },
                 },
                 {
                     xtype: "textfield",
                     label: "Complemento",
+                    bind: {
+                        value: "{record.address_complement}",
+                    },
                 },
             ],
         },
@@ -77,11 +104,17 @@ Ext.define("Financeiro.view.supplier.Form", {
                     label: "Bairro",
                     margin: "0 5 0 0",
                     flex: 2,
+                    bind: {
+                        value: "{record.address_neighborhood}",
+                    },
                 },
                 {
                     xtype: "textfield",
                     label: "Nº",
                     flex: 1,
+                    bind: {
+                        value: "{record.address_number}",
+                    },
                 },
             ],
         },
@@ -93,11 +126,17 @@ Ext.define("Financeiro.view.supplier.Form", {
                     label: "UF",
                     margin: "0 5 0 0",
                     flex: 1,
+                    bind: {
+                        value: "{record.address_state}",
+                    },
                 },
                 {
                     xtype: "textfield",
                     label: "Cidade",
                     flex: 2,
+                    bind: {
+                        value: "{record.address_city}",
+                    },
                 },
             ],
         },
