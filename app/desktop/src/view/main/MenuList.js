@@ -6,6 +6,7 @@ Ext.define("Financeiro.view.main.MenuList", {
     scrollable: true, // scrol no menu se precisar
 
     bind: {
+        // trazendo dados do mainviewmodel por bind
         store: "{menu}",
     },
 });

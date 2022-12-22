@@ -22,6 +22,7 @@ Ext.define("Financeiro.view.main.MainView", {
         },
         {
             xtype: "center-container", // componente filho centro Center
+            reference: "centerview",
         },
     ],
 });

@@ -5,21 +5,25 @@
         {
             "text": "Dashboard",
             "iconCls": "x-fa fa-home",
+            "xtype": "home",
             "leaf": false
         },
         {
             "text": "Fornecedores",
             "iconCls": "x-fa fa-users",
+            "xtype": "supplier",
             "leaf": false
         },
         {
             "text": "Categorias",
             "iconCls": "x-fa fa-list",
+            "xtype": "category",
             "leaf": false
         },
         {
             "text": "Contas a Pagar",
             "iconCls": "x-fa fa-donate",
+            "xtype": "billtopay",
             "leaf": false
         }
     ]
