@@ -11,6 +11,9 @@ Ext.define("Financeiro.view.main.NavPanel", {
     items: [
         {
             xtype: "menulist", // filho que mostra os menus
+            listeners: {
+                selectionchange: "onMenuSelection",
+            },
         },
     ],
 });

@@ -1,0 +1,26 @@
+{
+    "leaf": false,
+
+    "children": [
+        {
+            "text": "Dashboard",
+            "iconCls": "x-fa fa-home",
+            "leaf": false
+        },
+        {
+            "text": "Fornecedores",
+            "iconCls": "x-fa fa-users",
+            "leaf": false
+        },
+        {
+            "text": "Categorias",
+            "iconCls": "x-fa fa-list",
+            "leaf": false
+        },
+        {
+            "text": "Contas a Pagar",
+            "iconCls": "x-fa fa-donate",
+            "leaf": false
+        }
+    ]
+}

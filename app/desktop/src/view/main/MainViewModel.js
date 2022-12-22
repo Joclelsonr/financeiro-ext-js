@@ -9,6 +9,7 @@ Ext.define("Financeiro.view.main.MainViewModel", {
             type: "tree",
             proxy: {
                 type: "ajax",
+                reader: "json",
                 url: "/resources/desktop/menu.json",
             },
             autoLoad: true,
