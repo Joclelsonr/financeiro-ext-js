@@ -1,26 +1,27 @@
-Ext.define('Financeiro.view.main.MainView', {
-  extend: 'Ext.Container',
-  xtype: 'mainview',
-  controller: 'mainviewcontroller',
-  viewModel: {
-    type: 'mainviewmodel'
-  },
-  items: [
-    {
-      xtype: 'component',
-      html: '<a style="font-size:24px" target="_blank" href="https://docs-devel.sencha.com/extjs/7.0.0-CE/guides/quick_start/What_You_Will_Be_Coding.html">Quick Start Tutorial Here</a><p>'
+Ext.define("Financeiro.view.main.MainView", {
+    extend: "Ext.Container", // container forma a tela inicial
+    xtype: "mainview",
+
+    controller: "mainviewcontroller", // controla as funcoes
+    viewModel: {
+        type: "mainviewmodel", // modela os dados do back-end
     },
-    {
-      xtype: 'displayfield',
-      reference: 'df',
-      bind: {
-        value: '{clickTime}'
-      }
-    },
-    {
-      xtype: 'button',
-      text: 'Click Me!',
-      handler: 'onButtonClick'
-    }
-  ]
-})
+    layout: "fit", //  layout fit estica a tela toda
+
+    items: [
+        {
+            xtype: "main-header", // componente filho header Mainheader
+            docked: "top",
+            reference: "headerview",
+        },
+        {
+            xtype: "nav-panel", // componente filho menu NavPanel
+            docked: "left",
+            width: 250,
+            reference: "navview",
+        },
+        {
+            xtype: "center-container", // componente filho centro Center
+        },
+    ],
+});
