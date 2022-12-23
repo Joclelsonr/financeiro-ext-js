@@ -1,9 +1,9 @@
-Ext.define("Financeiro.view.supplier.Grid", {
-    extend: "Ext.grid.Grid",
-    alias: "widget.suppliergrid",
-    title: "Fornecedores",
+Ext.define('Financeiro.view.supplier.Grid', {
+    extend: 'Ext.grid.Grid',
+    alias: 'widget.suppliergrid',
+    title: 'Fornecedores',
 
-    requires: ["Ext.dataview.plugin.ListPaging", "Ext.grid.plugin.Editable"],
+    requires: ['Ext.dataview.plugin.ListPaging', 'Ext.grid.plugin.Editable'],
 
     plugins: {
         listpaging: {
@@ -14,27 +14,27 @@ Ext.define("Financeiro.view.supplier.Grid", {
 
     items: [
         {
-            xtype: "toolbar",
-            docked: "top",
+            xtype: 'toolbar',
+            docked: 'top',
             items: [
                 {
-                    xtype: "button",
-                    iconCls: "x-fa fa-address-card",
-                    ui: "action",
-                    text: "Novo",
-                    tooltip: "Clique para cadastra um novo fornecedor",
+                    xtype: 'button',
+                    iconCls: 'x-fa fa-address-card',
+                    ui: 'action',
+                    text: 'Novo',
+                    tooltip: 'Clique para cadastra um novo fornecedor',
                     listeners: {
-                        tap: "onNovoFornecedor", // no toque do botao ativa a funcão
+                        tap: 'onNovoFornecedor', // no toque do botao ativa a funcão
                     },
                 },
                 {
-                    xtype: "button",
-                    iconCls: "x-fa fa-edit",
-                    margin: "0 0 0 5",
-                    text: "Editar",
-                    tooltip: "Clique para editar o fornecedor selecionado",
+                    xtype: 'button',
+                    iconCls: 'x-fa fa-edit',
+                    margin: '0 0 0 5',
+                    text: 'Editar',
+                    tooltip: 'Clique para editar o fornecedor selecionado',
                     listeners: {
-                        tap: "onEditFornecedor",
+                        tap: 'onEditFornecedor',
                     },
                 },
             ],
@@ -43,25 +43,25 @@ Ext.define("Financeiro.view.supplier.Grid", {
 
     columns: [
         {
-            text: "ID",
-            dataIndex: "id",
+            text: 'ID',
+            dataIndex: 'id',
             width: 50,
         },
         {
-            text: "Nome", // nome da coluna
-            dataIndex: "name", // nome do campo no mapeado pelo model
+            text: 'Nome', // nome da coluna
+            dataIndex: 'name', // nome do campo no mapeado pelo model
             flex: 1,
             editable: true, // ativando colunas para edição
         },
         {
-            text: "Telefone",
-            dataIndex: "phone",
+            text: 'Telefone',
+            dataIndex: 'phone',
             width: 150,
             editable: true,
         },
         {
-            text: "E-mail",
-            dataIndex: "email",
+            text: 'E-mail',
+            dataIndex: 'email',
             flex: 1,
             editable: true,
         },

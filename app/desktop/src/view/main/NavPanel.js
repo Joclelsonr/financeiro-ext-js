@@ -1,20 +1,20 @@
-Ext.define("Financeiro.view.main.NavPanel", {
-    extend: "Ext.Panel", // componente que renderiza os menus
-    alias: "widget.nav-panel",
-    title: "Menu",
+Ext.define('Financeiro.view.main.NavPanel', {
+    extend: 'Ext.Panel', // componente que renderiza os menus
+    alias: 'widget.nav-panel',
+    title: 'Menu',
 
     shadow: true, // sombra
-    margin: "0 5 0 0", // margem top=0 right=5 bottom=0 left=0
+    margin: '0 5 0 0', // margem top=0 right=5 bottom=0 left=0
 
-    layout: "fit", // layout que estica tela toda
+    layout: 'fit', // layout que estica tela toda
 
     items: [
         {
-            xtype: "menulist", // filho que mostra os menus
-            reference: "menuList",
+            xtype: 'menulist', // filho que mostra os menus
+            reference: 'menuList',
             listeners: {
                 // ouvindo o selectionchange
-                selectionchange: "onMenuSelection", //  seleção do item do menu
+                selectionchange: 'onMenuSelection', //  seleção do item do menu
             },
         },
     ],

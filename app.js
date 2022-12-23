@@ -1,4 +1,4 @@
 Ext.application({
-  extend: 'Financeiro.Application',
-  name: 'Financeiro'
-})
+    extend: 'Financeiro.Application',
+    name: 'Financeiro',
+});

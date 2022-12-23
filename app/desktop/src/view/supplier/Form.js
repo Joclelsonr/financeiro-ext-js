@@ -1,141 +1,141 @@
-Ext.define("Financeiro.view.supplier.Form", {
-    extend: "Ext.form.Panel",
-    alias: "widget.supplier-form",
+Ext.define('Financeiro.view.supplier.Form', {
+    extend: 'Ext.form.Panel',
+    alias: 'widget.supplier-form',
 
-    requires: ["Ext.field.Container", "Ext.field.trigger.Search"],
+    requires: ['Ext.field.Container', 'Ext.field.trigger.Search'],
     modelValidation: true,
 
     items: [
         {
-            xtype: "textfield",
-            label: "Nome",
+            xtype: 'textfield',
+            label: 'Nome',
             bind: {
-                value: "{record.name}",
+                value: '{record.name}',
             },
         },
         {
-            xtype: "fieldcontainer",
+            xtype: 'fieldcontainer',
             defaults: {
                 flex: 1,
             },
             items: [
                 {
-                    xtype: "textfield",
-                    label: "Telefone",
-                    margin: "0 5 0 0",
+                    xtype: 'textfield',
+                    label: 'Telefone',
+                    margin: '0 5 0 0',
                     bind: {
-                        value: "{record.phone}",
+                        value: '{record.phone}',
                     },
                 },
                 {
-                    xtype: "textfield",
-                    label: "Email",
+                    xtype: 'textfield',
+                    label: 'Email',
                     bind: {
-                        value: "{record.email}",
+                        value: '{record.email}',
                     },
                 },
             ],
         },
         {
-            xtype: "fieldcontainer",
+            xtype: 'fieldcontainer',
             defaults: {
                 flex: 1,
             },
             items: [
                 {
-                    xtype: "textfield",
-                    label: "CNPJ/CPF",
-                    margin: "0 5 0 0",
+                    xtype: 'textfield',
+                    label: 'CNPJ/CPF',
+                    margin: '0 5 0 0',
                     bind: {
-                        value: "{record.cnpj_cpf}",
+                        value: '{record.cnpj_cpf}',
                     },
                 },
                 {
-                    xtype: "textfield",
-                    label: "IE/RG",
+                    xtype: 'textfield',
+                    label: 'IE/RG',
                     bind: {
-                        value: "{record.rg_ie}",
+                        value: '{record.rg_ie}',
                     },
                 },
             ],
         },
         {
-            xtype: "textfield",
-            label: "CEP",
-            width: "35%",
+            xtype: 'textfield',
+            label: 'CEP',
+            width: '35%',
             bind: {
-                value: "{record.address_postal_code}",
+                value: '{record.address_postal_code}',
             },
             triggers: [
                 {
-                    type: "search",
-                    handler: "onSearchCep",
+                    type: 'search',
+                    handler: 'onSearchCep',
                 },
             ],
         },
         {
-            xtype: "fieldcontainer",
+            xtype: 'fieldcontainer',
             defaults: {
                 flex: 1,
             },
             items: [
                 {
-                    xtype: "textfield",
-                    label: "Endereço",
-                    margin: "0 5 0 0",
+                    xtype: 'textfield',
+                    label: 'Endereço',
+                    margin: '0 5 0 0',
                     bind: {
-                        value: "{record.address}",
+                        value: '{record.address}',
                     },
                 },
                 {
-                    xtype: "textfield",
-                    label: "Complemento",
+                    xtype: 'textfield',
+                    label: 'Complemento',
                     bind: {
-                        value: "{record.address_complement}",
-                    },
-                },
-            ],
-        },
-        {
-            xtype: "fieldcontainer",
-            items: [
-                {
-                    xtype: "textfield",
-                    label: "Bairro",
-                    margin: "0 5 0 0",
-                    flex: 2,
-                    bind: {
-                        value: "{record.address_neighborhood}",
-                    },
-                },
-                {
-                    xtype: "textfield",
-                    label: "Nº",
-                    flex: 1,
-                    bind: {
-                        value: "{record.address_number}",
+                        value: '{record.address_complement}',
                     },
                 },
             ],
         },
         {
-            xtype: "fieldcontainer",
+            xtype: 'fieldcontainer',
             items: [
                 {
-                    xtype: "textfield",
-                    label: "UF",
-                    margin: "0 5 0 0",
-                    flex: 1,
+                    xtype: 'textfield',
+                    label: 'Bairro',
+                    margin: '0 5 0 0',
+                    flex: 2,
                     bind: {
-                        value: "{record.address_state}",
+                        value: '{record.address_neighborhood}',
                     },
                 },
                 {
-                    xtype: "textfield",
-                    label: "Cidade",
+                    xtype: 'textfield',
+                    label: 'Nº',
+                    flex: 1,
+                    bind: {
+                        value: '{record.address_number}',
+                    },
+                },
+            ],
+        },
+        {
+            xtype: 'fieldcontainer',
+            items: [
+                {
+                    xtype: 'textfield',
+                    label: 'UF',
+                    margin: '0 5 0 0',
+                    flex: 1,
+                    bind: {
+                        value: '{record.address_state}',
+                    },
+                },
+                {
+                    xtype: 'textfield',
+                    label: 'Cidade',
                     flex: 2,
                     bind: {
-                        value: "{record.address_city}",
+                        value: '{record.address_city}',
                     },
                 },
             ],

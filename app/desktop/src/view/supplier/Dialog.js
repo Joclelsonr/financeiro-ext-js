@@ -1,10 +1,10 @@
-Ext.define("Financeiro.view.supplier.Dialog", {
-    extend: "Ext.Dialog",
-    title: "Cadastro de Fornecedor",
+Ext.define('Financeiro.view.supplier.Dialog', {
+    extend: 'Ext.Dialog',
+    title: 'Cadastro de Fornecedor',
 
-    controller: "supplierdialog",
+    controller: 'supplierdialog',
 
-    layout: "fit",
+    layout: 'fit',
     width: 600,
     height: 570,
 
@@ -13,21 +13,21 @@ Ext.define("Financeiro.view.supplier.Dialog", {
 
     items: [
         {
-            xtype: "supplier-form",
-            reference: "form",
+            xtype: 'supplier-form',
+            reference: 'form',
         },
         {
-            xtype: "toolbar",
-            docked: "bottom",
+            xtype: 'toolbar',
+            docked: 'bottom',
             layout: {
-                layout: "hbox",
-                pack: "end",
+                layout: 'hbox',
+                pack: 'end',
             },
             items: [
                 {
-                    xtype: "button",
-                    text: "Salvar",
-                    handler: "onSaveEdit",
+                    xtype: 'button',
+                    text: 'Salvar',
+                    handler: 'onSaveEdit',
                 },
             ],
         },
