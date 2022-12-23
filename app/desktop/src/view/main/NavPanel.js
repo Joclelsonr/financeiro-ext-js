@@ -24,6 +24,7 @@ Ext.define('Financeiro.view.main.NavPanel', {
             xtype: 'button',
             text: 'Configurações',
             iconCls: 'x-fa fa-cog',
+            margin: '0 0 5 0',
         },
     ],
 });

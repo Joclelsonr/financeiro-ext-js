@@ -17,7 +17,7 @@
         {
             "text": "Categorias",
             "iconCls": "x-fa fa-list",
-            "xtype": "category",
+            "xtype": "categoryview",
             "leaf": false
         },
         {
