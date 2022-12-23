@@ -6,7 +6,7 @@ Ext.define('Financeiro.view.main.NavPanel', {
     shadow: true, // sombra
     margin: '0 5 0 0', // margem top=0 right=5 bottom=0 left=0
 
-    layout: 'fit', // layout que estica tela toda
+    layout: 'vbox', // layout que estica tela toda
 
     items: [
         {
@@ -16,6 +16,14 @@ Ext.define('Financeiro.view.main.NavPanel', {
                 // ouvindo o selectionchange
                 selectionchange: 'onMenuSelection', //  seleção do item do menu
             },
+        },
+        {
+            xtype: 'spacer',
+        },
+        {
+            xtype: 'button',
+            text: 'Configurações',
+            iconCls: 'x-fa fa-cog',
         },
     ],
 });

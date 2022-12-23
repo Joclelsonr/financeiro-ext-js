@@ -7,23 +7,56 @@ Ext.define('Financeiro.view.supplier.DialogController', {
     onSaveEdit: function () {
         var me = this,
             form = me.lookup('form'),
+            dialog = me.getView(),
             viewModel = me.getViewModel(),
-            gridView = viewModel.get('gridView');
+            gridView = viewModel.get('gridView'),
+            record = viewModel.get('record');
 
-        if (form.isValid()) {
-            me.getView().mask('Salvando, aguarde...');
-            viewModel.get('record').save({
-                callback: function (record) {
-                    me.getView().unmask();
+        if (record.isValid()) {
+            dialog.mask('Salvando, aguarde...');
+            record.save({
+                callback: (record) => {
+                    dialog.unmask();
                     if (gridView) {
                         gridView.getStore().reload();
                         Ext.toast('Registro salvo com sucesso!', 4000);
-                        me.getView().close();
+                        dialog.close();
                     }
                 },
             });
         } else {
             form.validate();
         }
+    },
+
+    onDeleteEdit: function (button) {
+        var me = this,
+            viewModel = me.getViewModel(),
+            dialog = me.getView(),
+            record = viewModel.get('record');
+
+        Ext.Msg.confirm(
+            'Confirmação',
+            'Deseja realmente excluir? ',
+            (option) => {
+                if (option === 'yes') {
+                    dialog.mask('Excluindo, aguarde...');
+                    record.erase({
+                        callback: (record) => {
+                            dialog.unmask();
+                            if (record.dropped) {
+                                Ext.toast(
+                                    'Exclusão realisada com sucesso!',
+                                    4000
+                                );
+                                dialog.close();
+                            } else {
+                                record.reject();
+                            }
+                        },
+                    });
+                }
+            }
+        );
     },
 });

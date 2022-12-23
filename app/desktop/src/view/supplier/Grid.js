@@ -19,7 +19,7 @@ Ext.define('Financeiro.view.supplier.Grid', {
             items: [
                 {
                     xtype: 'button',
-                    iconCls: 'x-fa fa-address-card',
+                    iconCls: 'x-fa fa-user-tie',
                     ui: 'action',
                     text: 'Novo',
                     tooltip: 'Clique para cadastra um novo fornecedor',
@@ -29,17 +29,43 @@ Ext.define('Financeiro.view.supplier.Grid', {
                 },
                 {
                     xtype: 'button',
-                    iconCls: 'x-fa fa-edit',
+                    iconCls: 'x-fa fa-pen',
                     margin: '0 0 0 5',
                     text: 'Editar',
                     tooltip: 'Clique para editar o fornecedor selecionado',
+                    disabled: true,
+                    bind: {
+                        disabled: '{!supplierGrid.selection}',
+                    },
                     listeners: {
                         tap: 'onEditFornecedor',
+                    },
+                },
+                {
+                    xtype: 'button',
+                    iconCls: 'x-fa fa-trash',
+                    ui: 'decline',
+                    margin: '0 0 0 5',
+                    text: 'Excluir',
+                    tooltip: 'Clique para excluir o fornecedor',
+                    disabled: true,
+                    bind: {
+                        disabled: '{!supplierGrid.selection}',
+                    },
+                    listeners: {
+                        tap: 'onDeleteFornecedor',
                     },
                 },
             ],
         },
     ],
+
+    // ativa multi seleção do grid com checkbox
+    selectable: {
+        checkbox: true,
+    },
+
+    emptyText: true, // habilito o texto de vazio quando nao tiver registro
 
     columns: [
         {

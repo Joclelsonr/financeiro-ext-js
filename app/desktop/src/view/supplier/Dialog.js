@@ -26,6 +26,19 @@ Ext.define('Financeiro.view.supplier.Dialog', {
             items: [
                 {
                     xtype: 'button',
+                    // text: 'Excluir',
+                    iconCls: 'x-fa fa-trash',
+                    ui: 'decline',
+                    handler: 'onDeleteEdit',
+                },
+                {
+                    xtype: 'spacer',
+                    flex: 1,
+                },
+                {
+                    xtype: 'button',
+                    ui: 'confirm',
+                    iconCls: 'x-fa fa-check',
                     text: 'Salvar',
                     handler: 'onSaveEdit',
                 },

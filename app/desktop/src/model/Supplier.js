@@ -1,7 +1,7 @@
 Ext.define('Financeiro.model.Supplier', {
     extend: 'Financeiro.model.Base',
 
-    requires: ['Ext.data.proxy.Rest'],
+    requires: ['Ext.data.proxy.Rest', 'Ext.data.validator.Presence'],
 
     // chamada para api
     proxy: {

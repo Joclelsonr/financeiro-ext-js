@@ -34,6 +34,36 @@ Ext.define('Financeiro.view.supplier.MainViewController', {
         }
     },
 
+    onDeleteFornecedor: function (button) {
+        var me = this,
+            grid = me.lookup('supplierGrid'),
+            selection = grid.getSelected(),
+            store = grid.getStore();
+
+        Ext.Msg.confirm(
+            'Confirmação',
+            'Deseja realmente excluir?',
+            (option) => {
+                if (option === 'yes') {
+                    store.remove(selection.items);
+                    store.sync({
+                        callback: (batch) => {
+                            if (batch.complete) {
+                                Ext.toast(
+                                    'Exclusão realizada com sucesso!',
+                                    4000
+                                );
+                                store.reload();
+                            } else {
+                                store.rejectChanges();
+                            }
+                        },
+                    });
+                }
+            }
+        );
+    },
+
     openEditDialog: function (config) {
         var me = this,
             wizardDialog = Ext.create(
