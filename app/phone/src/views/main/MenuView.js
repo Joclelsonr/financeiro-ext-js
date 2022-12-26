@@ -24,7 +24,7 @@ Ext.define('Financeiro.view.main.MenuView', {
             items: [
                 {
                     text: 'Dashboard',
-                    tag: 'dashboardview',
+                    tag: 'home',
                 },
                 {
                     text: 'Contas a Pagar',

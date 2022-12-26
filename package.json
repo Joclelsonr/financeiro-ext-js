@@ -30,6 +30,7 @@
     },
     "dependencies": {
         "@sencha/ext": "~7.6.0",
+        "@sencha/ext-charts": "^7.6.0",
         "@sencha/ext-exporter": "^7.6.0",
         "@sencha/ext-modern": "~7.6.0",
         "@sencha/ext-modern-locale": "^7.6.0",

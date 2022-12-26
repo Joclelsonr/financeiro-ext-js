@@ -6,7 +6,7 @@
     "template": "moderndesktopminimal",
     "indexHtmlPath": "index.html",
     "locale": "pt_BR",
-    "requires": ["font-awesome", "treegrid", "exporter", "locale"],
+    "requires": ["font-awesome", "treegrid", "exporter", "locale", "charts"],
 
     "builds": {
         "desktop": {

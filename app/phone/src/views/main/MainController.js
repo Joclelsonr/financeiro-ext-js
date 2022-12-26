@@ -10,7 +10,7 @@ Ext.define('Financeiro.view.main.MainController', {
 
     // quando a aplicação inicia, ja inicia com a tela dashboard
     init: function () {
-        this.redirectTo('dashboardview', true);
+        this.redirectTo('home', true);
     },
 
     onMenuClick: function (button) {
