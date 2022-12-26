@@ -3,13 +3,15 @@ Ext.define('Financeiro.view.billtopay.Ggrid', {
     alias: 'widget.billtopaygrid',
     title: 'Contas a Pagar',
 
+    requires: ['Ext.grid.plugin.Exporter'],
+
     selectable: {
         checkbox: true,
     },
 
     plugins: {
-        // rowedit: true, // edição de linha na grid
         gridpagingtoolbar: true, // paginação na grid
+        gridexporter: true, // exportação da grid para pdf
     },
 
     items: [
@@ -47,14 +49,24 @@ Ext.define('Financeiro.view.billtopay.Ggrid', {
                     ui: 'decline',
                     margin: '0 0 0 5',
                     text: 'Excluir',
-                    tooltip: 'Clique para excluir o fornecedor',
+                    tooltip: 'Clique para excluir o ',
                     disabled: true,
                     bind: {
                         disabled: '{!billtopaygrid.selection}',
                     },
                     listeners: {
-                        tap: 'onDeleteFornecedor',
+                        tap: 'onDeleteBillToPay',
                     },
+                },
+                {
+                    xtype: 'spacer',
+                    flex: 1,
+                },
+                {
+                    xtype: 'button',
+                    text: 'Exportar',
+                    iconCls: 'x-fa fa-file-excel',
+                    handler: 'onExportExcel',
                 },
             ],
         },
@@ -70,29 +82,33 @@ Ext.define('Financeiro.view.billtopay.Ggrid', {
         },
         {
             text: 'Categoria',
-            dataIndex: 'bill_category_id',
+            dataIndex: 'bill_category_description',
             width: 130,
         },
         {
             text: 'Descrição',
-            dataIndex: 'notes',
+            dataIndex: 'description',
             flex: 1,
         },
         {
             text: 'Fornecedor',
-            dataIndex: 'supplier_id',
-            width: 130,
+            dataIndex: 'supplier_name',
+            flex: 1,
+            // width: 150,
         },
         {
             text: 'Valor Previsto',
             dataIndex: 'amount',
+            formatter: 'brMoney',
             align: 'right',
+            width: 110,
         },
         {
             text: 'Valor Pago',
             dataIndex: 'paid_amount',
+            formatter: 'brMoney',
             align: 'right',
-            width: 120,
+            width: 110,
         },
         {
             hidden: true,
@@ -104,7 +120,29 @@ Ext.define('Financeiro.view.billtopay.Ggrid', {
         },
         {
             text: 'Status',
+            align: 'center',
             width: 120,
+            exportRenderer: true,
+            // renderer: (value, record, dataIndex, cell, column) => {
+            //     if (record.get('paid_amount') && record.get('paid_date')) {
+            //         return 'Pago';
+            //     } else {
+            //         return 'Aberto';
+            //     }
+            // },
+            renderer: (value, record, dataIndex, cell, column) => {
+                if (record.get('paid_amount') && record.get('paid_date')) {
+                    cell.addCls('text-grid-green');
+                    return 'Pago';
+                } else {
+                    if (
+                        record.get('due_date').getTime() < new Date().getTime()
+                    ) {
+                        cell.addCls('text-grid-red');
+                    }
+                    return 'Aberto';
+                }
+            },
         },
     ],
 });

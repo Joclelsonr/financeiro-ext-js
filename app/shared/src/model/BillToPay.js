@@ -47,6 +47,16 @@ Ext.define('Financeiro.model.BillToPay', {
             type: 'int',
         },
         {
+            name: 'bill_category_description',
+            mapping: 'bill_category.description',
+            persist: false,
+        },
+        {
+            name: 'supplier_name',
+            mapping: 'supplier.name',
+            persist: false,
+        },
+        {
             name: 'installment',
             type: 'int',
             defaultValue: 1,

@@ -34,35 +34,43 @@ Ext.define('Financeiro.view.billtopay.MainViewController', {
         }
     },
 
-    // onDeleteFornecedor: function (button) {
-    //     var me = this,
-    //         grid = me.lookup('supplierGrid'),
-    //         selection = grid.getSelected(),
-    //         store = grid.getStore();
+    onDeleteBillToPay: function (button) {
+        var me = this,
+            grid = me.lookup('billtopaygrid'), // pego o grid pela referencia
+            selection = grid.getSelected(), // pego todas as informações selecionadas no model
+            store = grid.getStore(), //  pego o acesso ao store da grid
+            count = selection.getCount(); // contagem dos registros selecionados no model
 
-    //     Ext.Msg.confirm(
-    //         'Confirmação',
-    //         'Deseja realmente excluir?',
-    //         (option) => {
-    //             if (option === 'yes') {
-    //                 store.remove(selection.items);
-    //                 store.sync({
-    //                     callback: (batch) => {
-    //                         if (batch.complete) {
-    //                             Ext.toast(
-    //                                 'Exclusão realizada com sucesso!',
-    //                                 4000
-    //                             );
-    //                             store.reload();
-    //                         } else {
-    //                             store.rejectChanges();
-    //                         }
-    //                     },
-    //                 });
-    //             }
-    //         }
-    //     );
-    // },
+        Ext.Msg.confirm(
+            'Confirmação',
+            'Deseja realmente excluir?',
+            (option) => {
+                if (option === 'yes') {
+                    grid.mask(
+                        Ext.String.format(
+                            'Excluindo {0}, aguarde...',
+                            Ext.util.Format.plural(count, 'registro')
+                        )
+                    );
+                    store.remove(selection.items);
+                    store.sync({
+                        callback: (batch) => {
+                            grid.unmask();
+                            if (batch.complete) {
+                                Ext.toast(
+                                    'Exclusão realizada com sucesso!',
+                                    4000
+                                );
+                                store.reload();
+                            } else {
+                                store.rejectChanges();
+                            }
+                        },
+                    });
+                }
+            }
+        );
+    },
 
     openEditDialog: function (config) {
         var me = this,
@@ -73,5 +81,16 @@ Ext.define('Financeiro.view.billtopay.MainViewController', {
 
         wizardDialog.show();
         return wizardDialog;
+    },
+
+    onExportExcel: function (button) {
+        const month = new Date().getMonth();
+        const year = new Date().getFullYear();
+
+        this.lookup('billtopaygrid').saveDocumentAs({
+            title: 'Contas a Pagar',
+            type: 'excel',
+            fileName: `relatorio_${month}-${year}.xlsx`,
+        });
     },
 });

@@ -28,4 +28,35 @@ Ext.define('Financeiro.view.billtopay.DialogController', {
             form.validate();
         }
     },
+
+    onDeleteEdit: function () {
+        var me = this,
+            viewModel = me.getViewModel(),
+            dialog = me.getView(),
+            record = viewModel.get('record');
+
+        Ext.Msg.confirm(
+            'Confirmação',
+            'Deseja realmente excluir? ',
+            (option) => {
+                if (option === 'yes') {
+                    dialog.mask('Excluindo, aguarde...');
+                    record.erase({
+                        callback: (record) => {
+                            dialog.unmask();
+                            if (record.dropped) {
+                                Ext.toast(
+                                    'Exclusão realisada com sucesso!',
+                                    4000
+                                );
+                                dialog.close();
+                            } else {
+                                record.reject();
+                            }
+                        },
+                    });
+                }
+            }
+        );
+    },
 });

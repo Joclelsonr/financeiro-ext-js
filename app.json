@@ -1,141 +1,137 @@
 {
-  "name": "Financeiro",
-  "namespace": "Financeiro",
-  "version": "1.0.0.0",
-  "framework": "ext",
-  "template": "moderndesktopminimal",
-  "indexHtmlPath": "index.html",
-  "requires": [
-    "font-awesome"
-  ],
-
-  "builds": {
-    "desktop": {
-      "toolkit": "modern",
-      "theme": "theme-material",
-      "sass": {
-        "generated": {
-          "var": "${build.id}/sass/save.scss",
-          "src": "${build.id}/sass/save"
-        }
-      }
-    }
-  },
-
-  "classpath": ["app/${build.id}/src"],
-  "overrides": ["app/${build.id}/overrides"],
-
-  "sass": {
+    "name": "Financeiro",
     "namespace": "Financeiro",
-    "etc": [
-      "sass/etc/all.scss"
-    ],
-    "var": [
-      "app/${build.id}/sass/var.scss"
-    ],
-    "src": [
-      "app/${build.id}/sass/src.scss"
-    ]
-  },
+    "version": "1.0.0.0",
+    "framework": "ext",
+    "template": "moderndesktopminimal",
+    "indexHtmlPath": "index.html",
+    "locale": "pt_BR",
+    "requires": ["font-awesome", "treegrid", "exporter", "locale"],
 
-  "resources": [
-    { "path": "resources/${build.id}" }
-  ],
+    "builds": {
+        "desktop": {
+            "toolkit": "modern",
+            "theme": "theme-material",
+            "sass": {
+                "generated": {
+                    "var": "${build.id}/sass/save.scss",
+                    "src": "${build.id}/sass/save"
+                }
+            }
+        },
+        "phone": {
+            "toolkit": "modern",
+            "theme": "theme-material",
+            "sass": {
+                "generated": {
+                    "var": "${build.id}/sass/save.scss",
+                    "src": "${build.id}/sass/save"
+                }
+            }
+        }
+    },
 
-  "output": {
-    "base": "${workspace.build.dir}/${build.environment}/${app.name}",
-    "page": "index.html",
-    "manifest": "generatedFiles/${build.id}.json",
-    "js": "generatedFiles/${build.id}/app.js",
-    "appCache": {"enable": false},
-    "resources": {
-      "path": "${build.id}/resources",
-      "shared": "resources"
-    }
-  },
-  
-  "fashion": {
-   "missingParameters": "error",
-    "inliner": {"enable": false}
-  },
+    "classpath": ["app/${build.id}/src", "app/shared/src"],
+    "overrides": ["app/${build.id}/overrides", "app/shared/overrides"],
 
-  "js": [
-  ],
+    "sass": {
+        "namespace": "Financeiro",
+        "etc": ["sass/etc/all.scss"],
+        "var": ["app/${build.id}/sass/var.scss"],
+        "src": ["app/${build.id}/sass/src.scss"]
+    },
 
-  "classic": {"js": []},
-  "modern": {"js": []},
+    "resources": [{ "path": "resources/${build.id}" }],
 
-  "css": [
-    {
-      "path": "${build.out.css.path}",
-      "bundle": true,
-      "exclude": ["fashion"]
-    }
-  ],
-
-  "loader": {
-    "cache": false,
-    "cacheParam": "_dc"
-  },
-
-  "production": {
-    "js": [
-      {"path": "app.js", "bundle": true},
-      {"path": "${app.webpack.bundle}", "compress": false }
-    ],
     "output": {
-      "appCache": {
-        "enable": false,
-        "path": "cache.appcache"
-      }
+        "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        "page": "index.html",
+        "manifest": "generatedFiles/${build.id}.json",
+        "js": "generatedFiles/${build.id}/app.js",
+        "appCache": { "enable": false },
+        "resources": {
+            "path": "${build.id}/resources",
+            "shared": "resources"
+        }
     },
-    "loader": {
-      "cache": "${build.timestamp}"
+
+    "fashion": {
+        "missingParameters": "error",
+        "inliner": { "enable": false }
     },
-    "cache": {
-      "enable": true
-    },
-    "compressor": {
-      "type": "yui"
-    }
-  },
-  "testing": {
-      "js": [
-        {"path": "app.js", "bundle": true},
-        {"path": "${app.webpack.bundle}", "compress": false }
-      ]
-   },
-  "development": {
-    "js": [
-      {"path": "app.js", "bundle": true},
-      {"path": "main.js"}
+
+    "js": [],
+
+    "classic": { "js": [] },
+    "modern": { "js": [] },
+
+    "css": [
+        {
+            "path": "${build.out.css.path}",
+            "bundle": true,
+            "exclude": ["fashion"]
+        }
     ],
-    "watch": {
-      "delay": 250
-    }
-  },
 
-  "bootstrap": {
-    "base": "${app.dir}",
-    "manifest": "generatedFiles/${build.id}.json",
-    "microloader": "generatedFiles/bootstrap.js",
-    "css": "generatedFiles/bootstrap.css"
-  },
+    "loader": {
+        "cache": false,
+        "cacheParam": "_dc"
+    },
 
-  "cache": {
-      "enable": false,
-      "deltas": "${build.id}/deltas"
-  },
+    "production": {
+        "js": [
+            { "path": "app.js", "bundle": true },
+            { "path": "${app.webpack.bundle}", "compress": false }
+        ],
+        "output": {
+            "appCache": {
+                "enable": false,
+                "path": "cache.appcache"
+            }
+        },
+        "loader": {
+            "cache": "${build.timestamp}"
+        },
+        "cache": {
+            "enable": true
+        },
+        "compressor": {
+            "type": "yui"
+        }
+    },
+    "testing": {
+        "js": [
+            { "path": "app.js", "bundle": true },
+            { "path": "${app.webpack.bundle}", "compress": false }
+        ]
+    },
+    "development": {
+        "js": [{ "path": "app.js", "bundle": true }, { "path": "main.js" }],
+        "watch": {
+            "delay": 250
+        }
+    },
 
-  "appCache": {
-    "cache": ["index.html"],
-    "network": ["*"],
-    "fallback": []
-  },
+    "bootstrap": {
+        "base": "${app.dir}",
+        "manifest": "generatedFiles/${build.id}.json",
+        "microloader": "generatedFiles/bootstrap.js",
+        "css": "generatedFiles/bootstrap.css"
+    },
 
+    "cache": {
+        "enable": false,
+        "deltas": "${build.id}/deltas"
+    },
 
-  "archivePath": "archive/${build.id}",
+    "appCache": {
+        "cache": ["index.html"],
+        "network": ["*"],
+        "fallback": []
+    },
 
-  "ignore": ["(^|/)CVS(/?$|/.*?$)"],
-  "id": "e38bd054-ad45-4324-a6fd-2efb011a4dfc"
+    "archivePath": "archive/${build.id}",
+
+    "ignore": ["(^|/)CVS(/?$|/.*?$)"],
+    "id": "e38bd054-ad45-4324-a6fd-2efb011a4dfc"
 }

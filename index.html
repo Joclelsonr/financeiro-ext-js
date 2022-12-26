@@ -12,8 +12,14 @@
         <script type="text/javascript">
             var Ext = Ext || {};
             Ext.beforeLoad = function (tags) {
-                var profile;
-                profile = 'desktop';
+                var s = location.search;
+                if (s.match(/\bdesktop\b/)) {
+                    profile: 'desktop';
+                } else if (s.match(/\bphone\b/)) {
+                    profile: 'phone';
+                } else {
+                    profile = tags.desktop ? 'desktop' : 'phone';
+                }
                 Ext.manifest = 'generatedFiles/' + profile;
             };
         </script>
